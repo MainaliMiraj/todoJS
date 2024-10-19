@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pop-quiz</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Quiz.js</h1>
-      <p>Do you know about JS? Lets find out!</p>
-    </header>
+    <h2 class="welcome">
+      Welcome to pop quiz.Lets test you <span class="js">JS</span> knowledge.
+    </h2>
 
-    <main>
-      <div id="statement"></div>
-
-      <div id="options">
-        <button name="true" value="true">true</button>
-        <button name="false" value="false">false</button>
+    <div class="container">
+      <div class="top">
+        <p class="question">What is the capital of France?</p>
+        <span class="question-no">1/10</span>
       </div>
-
-      <div id="explanation"></div>
-    </main>
-
-    
+      <div class="option">
+        <p class="options">Options</p>
+        <p class="options">Options</p>
+        <p class="options">Options</p>
+        <p class="options">Options</p>
+        <div class="click_actions">
+          <button class="act_button previous">Previous</button>
+          <button class="act_button submit">Submit</button>
+          <button class="act_button next">Next</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
