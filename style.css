@@ -9,10 +9,11 @@
   width: 100vw;
   align-items: center;
   flex-direction: column;
+  background: gainsboro;
 }
 .welcome {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 20px;
 }
 .js {
   color: orange;
@@ -24,6 +25,9 @@
   font-family: Georgia, "Times New Roman", Times, serif;
   color: orangered;
   margin-bottom: 10px;
+}
+.question-container {
+  color: rgb(233, 85, 31);
 }
 .options-container {
   width: 50%;
@@ -37,9 +41,9 @@
   text-align: center;
 }
 .option:hover {
-  background-color: rgb(158, 173, 187);
-  transform: scale(1.02);
-  transition: all;
+  background: rgb(233, 158, 130);
+  transform: scale(0.98);
+  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .option:active {
   transition: all;
@@ -144,18 +148,18 @@ button:disabled {
 
 .score {
   padding-top: 20px;
-  color: orangered;
+  color: rgb(233, 85, 31);
 }
 
 /* Correct answer styles */
 .option.correct {
-  background-color: #4caf50;
+  background-color: #3aad3e;
   color: white;
 }
 
 /* Incorrect answer styles */
 .option.incorrect {
-  background-color: #f44336;
+  background-color: #ce2d21;
   color: white;
 }
 
@@ -198,5 +202,3 @@ button:disabled {
   border: none;
   cursor: pointer;
 }
-
-

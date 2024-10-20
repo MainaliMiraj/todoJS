@@ -119,6 +119,7 @@ const quizQuestions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let optionSelected = false;
 
 // Get necessary DOM elements
 const questionContainer = document.querySelector(".question-container");
@@ -130,6 +131,8 @@ const scoreDisplay = document.querySelector(".score"); // Score element
 const modal = document.getElementById("quiz-modal");
 const closeButton = document.querySelector(".close-button");
 const restartButton = document.getElementById("restart-quiz");
+
+nextButton.disabled = true;
 
 // Function to render a question and its options
 function renderQuestion() {
@@ -151,9 +154,11 @@ function renderQuestion() {
     optionElement.textContent = optionText;
     optionElement.addEventListener("click", () =>
       checkAnswer(optionElement, currentQuestion.answer)
-    );
-    optionsContainer.appendChild(optionElement);
+  );
+  optionsContainer.appendChild(optionElement);
   });
+  optionSelected = false;
+  nextButton.disabled = true;
 
   // Update score display
   updateScoreDisplay();
@@ -181,20 +186,25 @@ function checkAnswer(selectedOption, correctAnswer) {
       option.classList.add("incorrect");
     }
   });
-
+optionSelected = true;
+nextButton.disabled = false;
   // Update score display
   updateScoreDisplay();
 }
 
 // Function to move to the next question
 function nextQuestion() {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < quizQuestions.length) {
-    renderQuestion();
-    prevButton.disabled = false; // Re-enable "Previous" button after moving forward
+  if (optionSelected) {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizQuestions.length) {
+      renderQuestion();
+      prevButton.disabled = false;
+    } else {
+      nextButton.disabled = true;
+      showModal(); // Show modal after the last question
+    }
   } else {
-    nextButton.disabled = true; // Disable "Next" button at the end
-    showModal(); // Show modal at the end of the quiz
+    alert("Please select an option before proceeding.");
   }
 }
 
