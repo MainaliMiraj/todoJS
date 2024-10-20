@@ -124,6 +124,11 @@ const questionContainer = document.querySelector(".question-container");
 const optionsContainer = document.querySelector(".options-container");
 const questionNo = document.querySelector(".question-no");
 const nextButton = document.querySelector(".next");
+const prevButton = document.querySelector(".previous");
+
+const modal = document.getElementById("quiz-modal");
+const closeButton = document.querySelector(".close-button");
+const restartButton = document.getElementById("restart-quiz");
 
 // Function to render a question and its options
 function renderQuestion() {
@@ -152,10 +157,50 @@ function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < quizQuestions.length) {
     renderQuestion();
+    prevButton.disabled = false; // Re-enable "Previous" button after moving forward
   } else {
-    // If it's the last question, disable the next button
     nextButton.disabled = true;
-    alert("You've reached the end of the quiz!");
+    showModal();
+  }
+}
+
+function showModal() {
+  modal.style.display = "block";
+}
+
+function hideModal() {
+  modal.style.display = "none";
+}
+
+function restartQuiz() {
+  currentQuestionIndex = 0;
+  renderQuestion();
+  modal.style.display = "none";
+  nextButton.disabled = false; // Re-enable the next button for a new quiz
+  prevButton.disabled = true; // Disable previous as we're back to the start
+}
+
+closeButton.addEventListener("click", hideModal);
+restartButton.addEventListener("click", restartQuiz);
+
+// Close the modal if user clicks outside of it
+window.addEventListener("click", function (event) {
+  if (event.target === modal) {
+    hideModal();
+  }
+});
+
+function prevQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--; // Move back one question
+    renderQuestion();
+    nextButton.disabled = false; // Re-enable "Next" button when moving backward
+  }
+
+  // Disable "Previous" button when at the first question
+  if (currentQuestionIndex === 0) {
+    prevButton.disabled = true;
+    prevButton.classList.add("disabled");
   }
 }
 
@@ -164,3 +209,4 @@ renderQuestion();
 
 // Event listener for the "Next" button
 nextButton.addEventListener("click", nextQuestion);
+prevButton.addEventListener("click", prevQuestion);
