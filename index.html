@@ -7,37 +7,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2 class="welcome">
-      Welcome to pop quiz.Lets test your <span class="js">JS</span> knowledge.
-    </h2>
+    <div class="taskbox">
 
-    <div class="container">
-      <div class="question-container">
-        <span class="question-no"></span>
+      <div class="header">
+        <h2 class="welcome">
+          Let's <span class="js">Track</span> your daily Task 🙂
+        </h2>
       </div>
-      <div class="options-container">
-        <div class="user_action">
-          </div>
-          </div>
-          <div class="action-container">
-          <button class="act_button previous">Previous</button>
-           <div class="score"></span></div>
-
-          <button class="act_button next">Next</button>
-           </div>
+      
+      <div class="task_container">
+        <div class="task_add_container">
+          <input type="text" placeholder="+ Add New Task" class="task_input_box"></input>
+          <input type="button" value="Add task" class="add_button">
+        </div>
+        <div class="task_container">
+          
         </div>
       </div>
     </div>
 
-  <!-- Modal when quiz finishes. -->
-    <div id="quiz-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-button">&times;</span>
-    <h2>Quiz Completed!</h2>
-    <p>Congratulations! You've completed the quiz.</p>
-    <button id="restart-quiz" class="modal-button">Restart Quiz</button>
-  </div>
-</div>
     <script src="script.js"></script>
   </body>
 </html>

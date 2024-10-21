@@ -1,204 +1,59 @@
 * {
   margin: 0;
   padding: 0;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  align-items: center;
-  flex-direction: column;
-  background: gainsboro;
-}
-.welcome {
-  text-align: center;
-  margin: 20px 20px;
+  box-sizing: border-box;
 }
 .js {
-  color: orange;
-}
-
-.question {
-  font-size: larger;
-  font-weight: 900;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: orangered;
-  margin-bottom: 10px;
-}
-.question-container {
-  color: rgb(233, 85, 31);
-}
-.options-container {
-  width: 50%;
-}
-.option {
-  border: 2px solid gray;
-  padding: 10px;
-  width: 100%;
-  margin: 10px;
-  cursor: pointer;
-  text-align: center;
-}
-.option:hover {
-  background: rgb(233, 158, 130);
-  transform: scale(0.98);
-  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.option:active {
-  transition: all;
-  transform: scale(0.99);
-}
-.user_action {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 10px;
-}
-.act_button {
-  padding: 10px;
-  background: rgb(233, 158, 130);
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-}
-.act_button:hover {
-  background-color: rgb(158, 173, 187);
-  transform: scale(1.02);
-  transition: all;
-}
-
-.act_button:active {
-  transform: scale(0.99);
-}
-
-.options:active {
-  font-weight: bolder;
-}
-
-.question-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 50%;
-}
-.question-no {
-  font-weight: 900;
   color: brown;
 }
-.action-container {
+
+.taskbox {
+  background: gainsboro;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.task_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+.task_input_box {
+  padding: 1rem;
+  width: 80%;
+  border: none;
+}
+.task_input_box:focus {
+  outline: 1px solid brown;
+}
+
+.task_add_container {
   display: flex;
   justify-content: space-around;
   width: 50%;
+  gap: 2;
 }
-
-button:disabled {
-  opacity: 0.5; /* Grays out the button */
-  cursor: not-allowed; /* Shows the "not-allowed" cursor */
-}
-
-/* Modal css when quiz finishes */
-/* Modal styles */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto; /* Center the modal */
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%; /* Could be more or less, depending on screen size */
-  text-align: center;
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: black;
-  text-decoration: none;
+.add_button {
+  padding: 0 1.5rem;
   cursor: pointer;
-}
-
-.modal-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
+  background: brown;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.score {
-  padding-top: 20px;
-  color: rgb(233, 85, 31);
-}
-
-/* Correct answer styles */
-.option.correct {
-  background-color: #3aad3e;
   color: white;
 }
-
-/* Incorrect answer styles */
-.option.incorrect {
-  background-color: #ce2d21;
-  color: white;
-}
-
-/* Disable pointer events after option selection */
-.option.disabled {
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-/* Modal styles */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  width: 50%;
-  text-align: center;
-}
-
-.close-button {
-  float: right;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.modal-button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  cursor: pointer;
+.add_button:active {
+  transform: scale(0.97);
 }
